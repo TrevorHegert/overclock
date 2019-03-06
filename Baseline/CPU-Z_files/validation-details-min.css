@@ -1,0 +1,403 @@
+h4{
+    padding: 1em;
+    text-align: center;
+    font-size: 2em;
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    HEADER
+---------------------------------------------------------------------------------------------------------------------*/
+#header {
+    display:    table;
+    width:      100%;
+    height:     8.3em;
+    overflow:   hidden;
+}
+
+#header .header__text,
+#header .header__label{
+    display:    table-cell;
+    vertical-align: top;
+}
+
+#header .header__text{
+    padding-top: 1.5em;
+    width : 66.66%;
+    text-align: center;
+    font-size: 1.2em;
+}
+    #header .header__text .content-text{
+        position: relative;
+        display: inline-block;
+    }
+        #header .header__text .content-text:after,
+        #header .header__text .content-text:before
+        {
+            content:'';
+            position: absolute;
+            top: .6em;
+            left: -5em;
+            width: 3em;
+            height: 3em;
+            background: url(../images/icon-trophy-gray.svg);
+            background-size: 100% auto;
+        }
+
+        #header .header__text .content-text:after{
+            right:-5em;
+            left: auto;
+        }
+
+        #header .header__text .valid-title{
+            color:#df31c6;
+            font-size: 2.3em;
+        }
+        #header .header__text .valid-title::after{
+            content:    none;
+        }
+        #header .header__text .valid-informations{
+            padding-top: .4em;
+            color:      #828282;
+            font-size: 1.2em;
+            font-weight: normal;
+            font-family: arial;
+        }
+            #header .header__text .valid-informations .nickname{
+                color:#fff;
+                font-weight: bold;
+            }
+
+#header .header__label{
+    background: url(../images/label-validated.png) no-repeat center;
+    background-size: auto 100%;
+}
+
+#header .header__label.rejected{
+    background-image: url(../images/label-rejected.png);
+}
+
+#header .header__label.unstable{
+    background-image: url(../images/label-unstable.png);
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                  LAYOUT
+---------------------------------------------------------------------------------------------------------------------*/
+
+.desktop .main-wrapper .block_100 .block_66 {
+    width:      63%;
+}
+.desktop .main-wrapper .block_100 .block_33 {
+    width:      37%;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    AD
+---------------------------------------------------------------------------------------------------------------------*/
+.block_100 .widget-advert-728:before,
+.block_100 .widget-advert-728:after{
+    width: 4.8em;
+    content: '- advert -';
+}
+#main__content .widget-advert-728 > div {
+    float:      none;
+}
+#main__content .block_100 .widget-advert-728:before,
+#main__content .block_100 .widget-advert-728:after {
+    display:    none;
+/*
+    float:      none;
+    margin-top: 0;
+    padding:    .8em 0;
+    width:      100%;
+    height:     auto;
+*/
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    SYS SPEC
+---------------------------------------------------------------------------------------------------------------------*/
+#sys-spec{
+    position: relative;
+    width: 100%;
+    clear: both;
+}
+
+#sys-spec .table-title,
+#bench-mark .table-title
+{
+    padding: .5em 0;
+    width: 100%;
+    background: rgb(59,59,59);
+    background: -moz-linear-gradient(top, rgba(59,59,59,1) 0%, rgba(48,48,48,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(59,59,59,1)), color-stop(100%,rgba(48,48,48,1)));
+    /******************** gradient ********************/
+    background: -webkit-linear-gradient(top, rgba(59,59,59,1) 0%,rgba(48,48,48,1) 100%);
+    background: -o-linear-gradient(top, rgba(59,59,59,1) 0%,rgba(48,48,48,1) 100%);
+    background: -ms-linear-gradient(top, rgba(59,59,59,1) 0%,rgba(48,48,48,1) 100%);
+    background: linear-gradient(to bottom, rgba(59,59,59,1) 0%,rgba(48,48,48,1) 100%);
+    -webkit-box-shadow: 0px -2px 5px 0px #222, 0px 2px 5px 0px #222;
+    -moz-box-shadow: 0px -2px 5px 0px #222, 0px 2px 5px 0px #222;
+    box-shadow: 0px -2px 5px 0px #222, 0px 2px 5px 0px #222;
+    color: #fff;
+    /******************** box shadow ********************/
+    text-align: center;
+    font-size: 1.5em;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b3b3b', endColorstr='#303030',GradientType=0 );
+    -o-box-shadow: 0px -2px 5px 0px #222, 0px 2px 5px 0px #222;
+}
+#sys-spec .table-title {
+    font-weight:    bold;
+    border-top:     1em solid #222;
+}
+#sys-spec .table-title:first-child {
+    border-top:     none;
+}
+
+
+#sys-spec .table,
+#bench-mark .table{
+    display: table;
+    width: 100%;
+    background-color: #252525;
+}
+
+#sys-spec .row,
+#bench-mark .row{
+    display: table-row;
+}
+
+#sys-spec .cell,
+#bench-mark .cell{
+    display: table-cell;
+    padding: .6em;
+    width:  20%;
+    border-top:1px dotted #3e3e3e;
+    font-weight: bold;
+    color: #777;
+    font-size: 1.4em;
+}
+
+
+#sys-spec .cell + .cell,
+#bench-mark .cell + .cell{
+    position: relative;
+    width: 80%;
+    color:#fff;
+    text-align: left;
+    font-weight: inherit;
+    font-size: 1.4em;
+}
+
+#sys-spec .cell .highlight,
+#bench-mark .cell .highlight{
+    color:#ec32d2;
+    /* font-weight: bold; */
+    font-size: 1.2em;
+}
+
+#sys-spec .cell .highlight2,
+#bench-mark .cell .highlight2{
+    color:#ec32d2;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    SCREENSHOT
+---------------------------------------------------------------------------------------------------------------------*/
+#screenshot{
+    text-align: center;
+}
+
+#screenshot img{
+    margin:     0 auto 1em auto;
+    width:      95%;
+    height:     auto;
+}
+.desktop #screenshot a.image {
+    display:    inline-block;
+    min-height: 41em;
+}
+.desktop #screenshot a.image img{
+    width:      auto;
+}
+.desktop #screenshot div {
+    padding:    .5em 0 1.5em 0;
+}
+.desktop #screenshot a.button {
+    width:      70%;
+    margin:     0 auto;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    BENCH MARK
+---------------------------------------------------------------------------------------------------------------------*/
+#bench-mark .header__picture{
+    margin-bottom: .2em;
+    height:     12.8em;
+    background: url(../images/_benchmark-header.jpg);
+}
+
+#bench-mark .cell{
+    width:      35%;
+}
+
+#bench-mark .cell + .cell{
+    width:      55%;
+    padding:    .1em .5em;
+}
+
+#bench-mark .bench-score .cell,
+#bench-mark .bench-score .cell+.cell {
+    width:      50%;
+}
+
+#bench-mark .cell + .cell em {
+    font-style:     normal;
+    padding-left:   .3em;
+}
+
+#bench-mark .cell + .cell a,
+#bench-mark .cell .benchbar {
+    display:    inline-block;
+    vertical-align: middle;
+}
+
+#bench-mark .final-row .cell:first-child{
+    color:      #616161;
+}
+
+#bench-mark .cell .benchbar {
+    width:      80%;
+    height:     1.3em;
+    background: rgba(189, 30, 171, 0.7);
+}
+#bench-mark .cell .benchbar.benchbarhighlight {
+    background: rgba(247, 27, 222, 0.8);
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    FORUM BANNER
+---------------------------------------------------------------------------------------------------------------------*/
+#forum-banner{
+    overflow: hidden;
+}
+
+#forum-banner .block_content{
+    padding-bottom: 2em;
+}
+
+#forum-banner h4{
+    position: relative;
+    padding:  .5em;
+}
+
+#forum-banner img,
+#forum-banner input,
+#forum-banner .form-fields{
+    display: block;
+    margin: 1em auto;
+    width: 95%;
+}
+.desktop #forum-banner img {
+    width:  auto;
+}
+
+#forum-banner img{
+    max-height: 37px;
+}
+
+#forum-banner input{
+    margin-top: 0;
+    padding: .5em;
+    background-color: #252525;
+    color:#5c5c5c;
+    font-size: 1.2em;
+}
+
+#forum-banner .form-fields{
+    overflow: hidden;
+}
+
+#forum-banner .form-fields label,
+#forum-banner .form-fields select{
+    display: block;
+    float: left;
+    width: 30%;
+}
+
+#forum-banner .form-fields label{
+    padding: .2em;
+    color:#828282;
+}
+
+#forum-banner .form-fields select{
+    padding: .5em;
+    width: 70%;
+    background-color: #fff;
+}
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    SOCIAL BUTTONS
+---------------------------------------------------------------------------------------------------------------------*/
+
+#social_share .disp-tab {
+    width:          80%;
+    margin-left:    10%;
+    padding-top:    2em;
+    padding-bottom: 3em;
+}
+#social_share .share-button {
+    display:        inline-block;
+    width:          90%;
+    padding-top:    25%;
+    text-overflow:  -999em;
+    overflow:       hidden;
+    background:     url(../images/social-buttons.png) no-repeat 0 0;
+    background-size: 100% auto;
+    cursor:         pointer;
+}
+#social_share .share-button.share-button-facebook {
+    background-position: 0 28.5%;
+}
+#social_share .share-button.share-button-gplus {
+    background-position: 0 57%;
+}
+#social_share .share-button.share-button-pinterest {
+    background-position: 0 85.5%;
+}
+#social_share .share-button:hover {
+    -webkit-transform:  scale(.95,.95);
+    transform:  scale(.95,.95);
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    OTHERS VALIDATIONS
+---------------------------------------------------------------------------------------------------------------------*/
+#others-validations {
+    margin-top: 3em;
+}
+#others-validations h4{
+    padding: 1.5em;
+}
+
+#others-validations > .block_100{
+    min-height: 0;
+}
+
+
+#admin-block .block_content {
+    padding-bottom: 2em;
+}
+#admin-block .disp-tab {
+    width:          68.5%;
+    margin-left:    15.8%;
+    margin-bottom:  1.5em;
+}
+#admin-block .disp-tab .disp-tabcell {
+    width:          50%;
+}
+#admin-block .disp-tab .disp-tabcell .button {
+    width:          90%;
+}

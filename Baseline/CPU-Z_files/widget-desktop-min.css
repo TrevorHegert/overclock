@@ -1,0 +1,186 @@
+/********* MY-VALIDATIONS ***********/
+.mouse .widget-myvalidations .row:hover{
+    background-color: #303030;
+    cursor: pointer;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    HOVER
+---------------------------------------------------------------------------------------------------------------------*/
+.mouse .widget-myvalidations .container a.public:hover,
+.mouse .widget-myvalidations .container a.private:hover{
+    background-color: #a62394;
+}
+
+.mouse .widget-myvalidations .container a.public:hover{
+    background-position: 34% 0%;
+}
+
+.ie8 #doughnut-wrapper:hover + script + #pie-ie8-rollover,
+.ie8 #pie-ie8-rollover:hover
+{
+    display: block;
+}
+
+
+/*******************************************                                *******************************************
+-----------------------------------------------------------------------------------------------------------------------
+                                                      IE8 FIX
+-----------------------------------------------------------------------------------------------------------------------
+*********************************************                                ******************************************/
+.ie8 .widget-advert-300:before,.ie8 .widget-advert-300:after,
+.ie8 .widget-advert-300-600:before,.ie8 .widget-advert-300-600:after,
+.ie8 .widget-advert-336:before,.ie8 .widget-advert-336:after,
+.ie8 .widget-advert-728:before,.ie8 .widget-advert-728:after,
+.ie8 .widget-advert-970:before,.ie8 .widget-advert-970:after,
+.ie8 .widget-advert-mobile-100:before,.ie8 .widget-advert-mobile-100:after,
+.ie8 .widget-advert-mobile-50:before,.ie8 .widget-advert-mobile-50:after {
+    text-align: center;
+
+}
+
+/******************** trophy picto inside latest records widget  ********************/
+.ie8 .widget-stats .header img{
+    visibility: hidden;
+}
+
+.ie8 .widget-stats .header{
+    background-image: url(../images/ie/icon-trophy-ie.png)!important;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+/******************** software logo ********************/
+.ie8 .widget-software > .header > a{
+    display: block;
+    width: 100%;
+    height: 10.2em;
+    background-image: url(../images/softwares/ie/cpu-z.png)!important;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ie8 .widget-software > .header > a img{
+    visibility: hidden;
+}
+
+
+.ie8 .widget-software.widget-software-soon > .header > a{
+    background-image: url(../images/softwares/ie/soon.png)!important;
+}
+
+
+.ie8 .widget-software.widget-software-zmark > .header > a{
+    background-image: url(../images/softwares/ie/z-mark.png)!important;
+}
+
+
+/******************** picto inside my account widget ********************/
+.ie8 .widget-myaccount div img{
+    visibility: hidden;
+}
+
+.ie8 .widget-myaccount div{
+    background-image: url(../images/ie/icon-account40x40.png)!important;
+    background-position: center 2em;
+    background-repeat: no-repeat;
+}
+
+/******************** input and select ********************/
+.ie8 form .form-fields-wrapper input{
+    padding-top: .6em;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+/******************** footer cpuz logo and canard pc logo ********************/
+.ie8 #main__footer #footer-sitemap > div.col2 li{
+    background-image: url(../images/ie/canard-pc-logo.png);
+}
+
+.ie8 #main__footer #footer-sitemap > div.col2 li + li {
+    background-image: url(../images/ie/cpuid-logo.png);
+}
+
+/******************** IE8 CHART AS PNG ********************/
+.ie8 .widget-graph .canvas-chart img{
+    width: 100%;
+    height: auto;
+}
+
+/******************** pie rollover ********************/
+.ie8 #pie-ie8-rollover{
+    position: absolute;
+    top: 11em;
+    left: 0;
+    display: none;
+    width: 100%;
+    background-image: url(../images/ie/legend-rollover.png);;
+    color:#fff;
+    font-size: 1.5em;
+}
+
+.ie8 #pie-ie8-rollover li{
+    position: relative;
+    padding: .5em;
+    padding-left: 2em;
+}
+.ie8 #pie-ie8-rollover span{
+    display: inline-block;
+}
+
+.ie8 #pie-ie8-rollover span:first-child{
+    position: absolute;
+    top: .5em;
+    left: .5em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 1px solid #fff;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    MY VALIDATION
+---------------------------------------------------------------------------------------------------------------------*/
+.ie8 .widget-myvalidations .container a.public,
+.ie8 .widget-myvalidations .container a.private{
+
+}
+
+.ie8 .widget-myvalidations .container a.public
+{
+
+}
+
+.ie8 .widget-myvalidations .container a.public:hover{
+
+}
+
+.ie8 .widget-myvalidations .platform{
+    background-image: url(../images/ie/icon-windows.png);
+}
+
+.ie8 .widget-myvalidations .platform.mobile{
+    background-image: url(../images/ie/icon-android.png);
+}
+
+.ie8 .listing-table .listing-col.col1 img.icon{
+    display: none;
+}
+
+.ie8 .listing-table .listing-col.col1 img.icon.js-ie{
+    display: block;
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    ADMIN BLOCK
+---------------------------------------------------------------------------------------------------------------------*/
+#admin-block .button{
+    width: 65%;
+    margin: 0 auto;
+}
+
+#admin-block .button + .button{
+    margin-top: 1em;
+}

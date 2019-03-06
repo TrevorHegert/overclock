@@ -1,0 +1,393 @@
+;(function () {
+	window.app = {
+	_sys : {
+		_ready		:	false,
+		_debug		:	true,
+		_mouseIteration:	0
+	},
+
+    _events : {}, /* CONTAINS ALL EVENTS INDEXED BY NAME */
+
+    /**
+     *  Add js class
+     *  Add moz class
+     *  Add mouse class
+     *  Launch connectMeAuto function
+     *  Create an event and combines a function with it
+     *  loadIeGraph function if it's on ie navigator
+     */
+	init : function()
+	{
+		//window.scrollTo(0,1);
+		_T.debug = true;
+
+		_T.changeCN(_T.gbtn('html')[0], 'nojs','js');
+
+		// SPECIFIC TO FIREFOX
+        if(navigator.userAgent.toLowerCase().split('firefox').length>1)
+			_T.addCN(_T.gbtn('html')[0], 'moz');
+
+		// TRY TO DETECT MOUSEMOVE
+		document.onmousemove = function() {
+			if(app._sys._mouseIteration>30) {
+				_T.addCN(_T.gbtn('html')[0],'mouse');
+				document.onmousemove = function() { };
+				delete app._sys._mouseIteration;
+			} else
+				app._sys._mouseIteration++;
+		};
+
+		app._sys._ready = true;
+        app.connectMeAuto();
+        app.createEvent('connect');
+
+        _T.addEvent(document, 'connect',function(){
+            app.updateAccountElements();
+        });
+
+        if(_T.ie > 0  && _T.ie < 9) app.loadIeGraph();
+    },
+
+    /**
+     * Check up if graph exist as png
+     * if it exists, it charged this png
+     */
+    loadIeGraph : function(){
+        if(_T.gbi('doughnut-wrapper')){
+            if(png_pie_exist == 1){
+                app.loadThisImageAsGraph(_T.gbi('doughnut-wrapper'), png_pie_name);
+                _T.gbi('pie-wait-statistics').style.display = 'none';
+            }
+        }
+
+        // chart bar exist as png
+        if(_T.gbi('bar-wrapper')){
+            if(png_bar_exist == 1){
+                app.loadThisImageAsGraph(_T.gbi('bar-wrapper'), png_bar_name);
+                _T.gbi('bar-wait-statistics').style.display = 'none';
+            }
+        }
+
+        // chart radar exist as png
+        if(_T.gbi('radar-wrapper')){
+            if(png_radar_exist == 1){
+                app.loadThisImageAsGraph(_T.gbi('radar-wrapper'), png_radar_name);
+                _T.gbi('radar-wait-statistics').style.display = 'none';
+            }
+        }
+
+        // chart map exist as png
+        if(_T.gbi('world-map-container')){
+            if(png_map_exist == 1)
+                app.loadThisImageAsGraph(_T.gbi('world-map-container'), png_map_name);
+        }
+    },
+
+    /**
+     * this function get the png graph, empties the container and add the png into this container
+     * @param element -> A div container
+     * @param name -> name of graph png
+     */
+     loadThisImageAsGraph : function(element, name){
+         var img_url = app.getBaseUrl() + 'medias/images/ie/'+name;
+
+         var img=document.createElement("img");
+         img.setAttribute('src', img_url);
+
+         element.innerHTML = '';
+         element.appendChild(img);
+     },
+
+    // SEND A REQUEST WITH LOGIN AND HASH IF EXIST IN LS
+    connectMeAuto : function(){
+        var connected = sessionStorage.getItem("cpuzvalidator-connected");
+        // IF A VARIABLE CONNECTED EXIST, THE USER IS ALREADY CONNECTED
+        if(connected !== "true"){
+            var email = localStorage.getItem('cpuzvalidator-email');
+            // IF A LOGIN EXIST, WE CAN TRY A CONNECTION
+            if(email){
+                var password = localStorage.getItem('cpuzvalidator-password');
+                app.connect(email, password, true);
+            }
+            else{
+                // NOT CONNECTED, NOTHING HAPPEND
+            }
+        }
+    },
+    // SEND A REQUEST WITH LOGIN AND PASSWORD ENTER BY THE USER
+    connectMe : function(){
+        var form = _T.gbi('login-form');
+        var inputs = form.getElementsByTagName('input');
+        var email = inputs[0].value;
+        var password = inputs[1].value;
+        app.connect(email, password, false);
+    },
+
+    /**
+     * This script communicate with login.php via ajax
+     * login.php to connect a user with login and password information
+     * Moreover, login.php, for a manual connexion, return information which have to be saved in localStorage
+     * For sure this function have errors processing
+     * @param email
+     * @param password
+     * @boolean autoConnect -> true if it's an auto connexion
+     */
+   connect : function(email, password, autoConnect){
+       var datas = {'email':email,'password':password};
+
+       var url = document.URL;
+       /* WE NEED IT BECAUSE OF URL REWRITING */
+       var ajax_url = app.getBaseUrl() + 'xhr/login.php';
+
+       _T.ajax(ajax_url, datas, 'POST', function(callback){
+           if(callback.indexOf('{') == 0){
+               var obj = JSON.parse(callback);
+
+               // CONNEXION SUCCESS
+               if(obj.success){
+                   // WE NEED IT IN AU CONNEXION TOO
+                   sessionStorage.setItem("cpuzvalidator-connected", "true");
+
+                   if(!autoConnect){
+                       // IT PUT LOG INFORMATION IN LS
+                       localStorage.setItem('cpuzvalidator-email', obj.email);
+                       localStorage.setItem('cpuzvalidator-password', obj.password);
+                   }
+                    // LOGIN PAGE, GO TO VALIDATIONS PAGE SO
+                   if(url.indexOf('login.html') != -1){
+                       var validations_url = app.getBaseUrl() + "my-account/validations.html";
+                       window.location.href = validations_url;
+                   }
+
+                   else
+                       app.dispatchEvent('connect');
+               }
+
+               // CONNEXION FAILED
+               else{
+                   // MANUAL CONNEXION
+                   if(autoConnect ===  false){
+                       _T.gbi('widget-login-error').style.display = 'block';
+
+                       if(_T.gbi('login-form')){
+                           var inputs = _T.gbi('login-form').getElementsByTagName('input');
+
+                           for(var i = 0; i < inputs.length; i++){
+                               var parent = _T.getClosestElement(inputs[i], 'div');
+                               _T.addCN(parent, 'error');
+
+                               _T.addEvent(inputs[i], 'change', function(){
+                                   app.deleteErrorIntoLoginForm();
+                               });
+
+                               _T.addEvent(inputs[i], 'focus', function(){
+                                   app.deleteErrorIntoLoginForm();
+                               });
+                           }
+                       }
+                   }
+               }
+           }
+
+           else{
+               _T.gbi('widget-login-error').style.display = 'block';
+               setTimeout(function(){
+                   _T.gbi('widget-login-error').style.display = 'none';
+               },5000);
+           }
+       });
+   },
+
+    /**
+     * Used by connect function
+     * Delete errors on the change and focus event
+     */
+    deleteErrorIntoLoginForm : function(){
+        var inputs = _T.gbi('login-form').getElementsByTagName('input');
+
+        for(var i = 0; i < inputs.length; i++){
+            var parent = _T.getClosestElement(inputs[i], 'div');
+            _T.changeCN(parent, 'error', '');
+        }
+
+        // widget login global error
+        _T.gbi('widget-login-error').style.display = 'none';
+    },
+
+    /**
+     * Called when a connexion is successful
+     * This function check up what elements need to be updated
+     * It send these information to a php script and get new elements, then it updates it
+     */
+    updateAccountElements : function(){
+        console.log('Auto connexion succesful, update page elements now');
+        var datas = {
+            'header' : true,
+            'widget-account' : typeof _T.gbcn('widget-login')[0] !== 'undefined',
+            'validations' : typeof _T.gbcn('widget-myvalidations')[0] !== 'undefined',
+            'data-user' : _T.gbi('validator-form') != null
+        };
+
+        var ajax_url = app.getBaseUrl() + 'xhr/update-content.php';
+
+        _T.ajax(ajax_url, datas, 'POST', function(callback){
+
+            if(callback.indexOf('{') == 0){
+                var obj = JSON.parse(callback);
+                console.log(callback);
+                if(obj.success){
+                    if(datas['header'] === true){
+                        _T.gbi('account').innerHTML = obj.header;
+                    }
+
+                    if(datas['validations'] === true){
+                        var widget_validations_parent = _T.gbcn('widget-myvalidations')[0].parentNode;
+                        widget_validations_parent.innerHTML = obj.validations;
+                    }
+
+                    if(datas['widget-account'] === true){
+                        // Widget-login block container
+                        var widget_login_parent = _T.gbcn('widget-login')[0].parentNode;
+                        widget_login_parent.innerHTML = obj['widget-account'];
+                    }
+
+                    if(datas['data-user'] === true){
+                        _T.gbi('user_name').value = obj.data['name'];
+                        _T.gbi('user_email').value = obj.data['email'];
+                    }
+                }
+
+                else if(!obj.success){
+
+                }
+            }
+
+            else{
+                //_T.log(callback);
+            }
+        });
+    },
+
+    /**
+     * return the base url website, used to create ajax url
+     * @returns {string}
+     */
+    getBaseUrl : function(){
+        return document.URL.substr(0, document.URL.indexOf('x86.fr/')+7);
+    },
+
+    createEvent : function(event_name){
+        var event;
+        if(document.createEvent){
+            event = document.createEvent("Event");
+            event.initEvent(event_name, true, false);
+        }
+        else if ( document.attachEvent ) {
+
+            // create a custom property name jqmReady and set it to 0
+            document.documentElement.jqmReady = 0;
+            // since IE8 does not allow to listen to custom events,
+            // just listen to onpropertychange
+            document.documentElement.attachEvent("onpropertychange", function(event) {
+
+                // if the property changed is the custom jqmReady property
+                if (event.propertyName == event_name) {
+                    // remove listener, since it's only used once
+                    document.documentElement.detachEvent("onpropertychange", arguments.callee);
+                }
+            });
+        }
+        else event = new Event(event_name);
+
+        app._events[event_name] = event;
+    },
+
+    dispatchEvent : function(event_name){
+        document.dispatchEvent(app._events[event_name]);
+    },
+
+	showElement : function(element){
+		var toShow = _T.gbi(element);
+		if(toShow)
+			_T.addCN(toShow,'show');
+    },
+
+    /**
+     *  Delete the localStorage data and sessionStorage data (session storage is used to dodged an auto connexion)
+     *  This function update account elements
+     */
+    logout : function(){
+        localStorage.removeItem('cpuzvalidator-email');
+        localStorage.removeItem('cpuzvalidator-password');
+        sessionStorage.removeItem('cpuzvalidator-connected');
+
+        var ajax_url = app.getBaseUrl() + 'xhr/logout.php';
+
+        _T.ajax(ajax_url, {}, 'POST', function(callback){
+
+            if(callback.indexOf('{') == 0){
+                var obj = JSON.parse(callback);
+
+                if(obj.success){
+                    // HEADER RESET
+                    _T.gbi('account').innerHTML = obj.header;
+
+                    // WIDGET ACCOUNT RESET
+                    if(typeof _T.gbcn('widget-myaccount')[0] !== 'undefined'){
+                        // Widget-login block container
+                        _T.gbcn('widget-myaccount')[0].parentNode.innerHTML = obj.widget;
+                    }
+
+                    // WIDGET OTHER VALIDATION DELETED
+                    if(_T.gbi("others-validations")){
+                        _T.gbi("others-validations").innerHTML = '';
+                    }
+
+                    // VALIDATOR FORM
+                    if(_T.gbi('validator-form')){
+                        _T.gbi('user_name').value = '';
+                        _T.gbi('user_email').value = '';
+                    }
+
+                    // ADMIN BLOCK
+                    if(_T.gbi('admin-block')){
+                        _T.gbi('admin-block').parentNode.removeChild(_T.gbi('admin-block'));
+                    }
+                }
+
+                else if(!obj.success){
+                    _T.log('disconnection error');
+                }
+            }
+
+            else{
+                //_T.log(callback);
+            }
+
+            // LOGIN PAGE, GO TO VALIDATIONS PAGE SO
+            if(document.URL.indexOf('my-account') != -1){
+                var logout_url = app.getBaseUrl() + "index.html";
+                window.location.href = logout_url;
+            }
+        });
+    },
+
+    hideElement : function(element){
+		var toHide = _T.gbi(element);
+		if(toHide)
+			_T.changeCN(toHide,'show','');
+    },
+
+	toggleMenu : function(){
+		(!_T.hasCN(document.body,'open-menu')) ? _T.addCN(document.body, 'open-menu') : _T.changeCN(document.body, 'open-menu', '');
+	},
+
+	toggleCN : function(element, classname){
+		if(_T.hasCN(element, classname)) _T.changeCN(element, classname, '');
+		else _T.addCN(element, classname);
+	}
+};
+}());
+
+// SIMILAR TO JQUERY'S .READY
+function onLoadCallback() { if(app.init) { app.init(); } else { setTimeout(onLoadCallback, 100); } }

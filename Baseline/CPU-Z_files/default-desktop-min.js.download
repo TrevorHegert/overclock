@@ -1,0 +1,48 @@
+/*---------------------------------------------------------------------------------------------------------------------
+ CHANGE VISIBILITY
+ ---------------------------------------------------------------------------------------------------------------------*/
+/*
+ THIS FUNCTION IS PRETTY DIFFERENT THAN THE MOBILE FUNCTION
+ */
+function changeVisibility(event, link){
+    if (typeof event.stopPropagation != "undefined") {
+        event.stopPropagation();
+    } else if (typeof event.cancelBubble != "undefined") {
+        event.cancelBubble = true;
+    }
+
+    var id = link.getAttribute('data-id');
+    var platform = link.getAttribute('data-platform');
+    // IF IT HAS A PRIVATE CLASS => IT HAS TO TURN PUBLIC (1)
+    var visibility_wanted = (link.className.indexOf('private') !== -1) ? 1 : 0;
+    var visibility_expected = (link.className.indexOf('private') !== -1) ? 'public' : 'private';
+    link.className = "loading";
+
+    var datas = {id:id, visibility:visibility_wanted, platform:platform};
+    ajax_url = '/xhr/change-visibility.php';
+
+    _T.ajax(ajax_url, datas, 'POST', function(callback){
+        if(callback.indexOf('{') == 0){
+            var obj = JSON.parse(callback);
+
+            if(obj.success){
+                // IT CHANGES LOCK CLASS
+                if(obj.datas.status == 100 && obj.datas.status_text.toLowerCase().indexOf("update ok") !== -1){
+                    _T.changeCN(link, "loading", visibility_expected);
+                }
+
+                else{
+                    _T.log("Error : no update needed or failure");
+                }
+            }
+
+            else{
+                _T.log("Error : unsuccess, bad post parameters");
+            }
+        }
+
+        else{
+            _T.log("Error : during php script answer, bad json format, could be a php error");
+        }
+    });
+}

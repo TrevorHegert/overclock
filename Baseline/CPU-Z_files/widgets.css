@@ -1,0 +1,815 @@
+
+
+/***** WIDGETS *************/
+
+.widget-block {
+	position:		relative;
+	background:		#303030;
+}
+
+.widget-block.widget-dark {
+	background:		#303030;
+}
+
+.widget-block .header span {
+    display:        block;
+}
+
+.widget-block p {
+	text-align:		center;
+}
+.widget-block .button {
+	display:		inline-block;
+	margin:			0 auto;
+}
+
+.widget-block h2.username {
+	position:		relative;
+	padding:		1em .8em .8em .8em;
+	width:			100%;
+	color:			#fff;
+	text-align:		center;
+	text-transform:	uppercase;
+	font-size:		2.3em;
+	line-height: 	1.2em;
+}
+.widget-block h4.username {
+	position:		relative;
+	padding:		1em .8em 1.2em .8em;
+	width:			100%;
+	color:			#de13c5;
+	font-family: 	Arial, sans-serif;
+	font-size:		2em;
+	font-weight: 	bold;
+	text-transform: capitalize;
+	text-align:		center;
+}
+
+.widget-block h4.username:after{
+    display: none;
+}
+.widget-block.widget-dark h4 {
+	color:			#fff;
+}
+.widget-block.widget-dark h4:after {
+	background:		#3e3e3e;
+}
+
+.widget-block footer {
+	padding:		1.5em .2em;
+	text-align:		center;
+}
+.widget-block footer a.button+a.button {
+	margin-left:	.8em;
+}
+
+
+/***** MY ACCOUNT *************/
+
+
+
+
+
+
+
+/***** SOFTWARES *************/
+
+.widget-software {
+	padding-bottom:	1em;
+	background: #fff;
+    text-align:		center;
+}
+.widget-software .header {
+	position:		relative;
+	display:		block;
+	padding-top:	0.01em;
+	width:			100%;
+	background-position:	top center;
+	background-size:		100% 17em;
+	background-repeat:		no-repeat;
+	content:		'';
+}
+.widget-software-cpuz .header {
+	background-image:		url(../images/widgets/widget-cpuz.jpg);
+}
+.widget-software-hwmonitor .header {
+	background-image:		url(../images/widgets/widget-hwmonitor.jpg);
+}
+.widget-software-hwmonitorpro .header {
+	background-image:		url(../images/widgets/widget-hwmonitorpro.jpg);
+}
+.widget-software-perfmonitor2 .header {
+	background-image:		url(../images/widgets/widget-perfmonitor2.jpg);
+}
+.widget-software-pcwizard .header {
+	background-image:		url(../images/widgets/widget-pcwizard.jpg);
+}
+.widget-software-cpc .header {
+	background-image:		url(../images/widgets/widget-cpc.jpg);
+}
+.widget-software-soon .header {
+	background-image:		url(../images/widgets/widget-soon.jpg);
+}
+
+
+.widget-software .header span {
+	z-index:		2;
+	display:		block;
+	margin:			0 auto;
+	margin-top:		11.5em;
+	width:			10em;
+	height:			auto;
+}
+.widget-software .header span img {
+    width:          100%;
+}
+.widget-block.widget-software h4 {
+	padding:		.6em .5em .2em .5em;
+	color:			#464646;
+	font-size:		2.2em;
+}
+.widget-software h4:after {
+	display:	none;
+}
+.widget-software h6 {
+	position:		relative;
+	margin-bottom:	.4em;
+	padding:		.2em .8em .8em .8em;
+	color:			#888;
+	font-weight:	normal;
+	font-size:		1.5em;
+}
+.widget-software h6:after {
+	position:		absolute;
+	bottom:			0;
+	left:			50%;
+	display:		block;
+	margin-left:	-2.5em;
+	width:			5em;
+	height:			1px;
+	background:		#d7d7d7;
+	content:		'';
+}
+.widget-software p {
+	padding:		.5em 1.3em;
+	height:			4.5em;
+	color:			#888;
+	font-size:		1.1em;
+	line-height:	1.1em;
+}
+.widget-software footer {
+	padding:		.5em .2em;
+}
+
+
+
+
+
+
+
+/***** SOFTWARE SDK *************/
+.widget-sdk-cpuz .header {
+	background-image:		url(../images/widgets/widget-sdk-cpuz.jpg);
+}
+.widget-sdk-soon .header {
+	background-image:		url(../images/widgets/widget-sdk-soon.jpg);
+}
+.widget-sdk-hwmonitor .header {
+	background-image:		url(../images/widgets/widget-sdk-hwmonitor.jpg);
+}
+.widget-sdk-cpuz h4:after,
+.widget-sdk-soon h4:after,
+.widget-sdk-hwmonitor h4:after {
+	display:	none;
+}
+.widget-sdk-cpuz h6,
+.widget-sdk-soon h6,
+.widget-sdk-hwmonitor h6 {
+	color:			#de13c5;
+}
+.widget-sdk-cpuz h6:after,
+.widget-sdk-soon h6:after,
+.widget-sdk-hwmonitor h6:after {
+	background:		#3e3e3e;
+}
+
+
+
+
+
+
+
+
+/***** BANNERS *************/
+
+.widget-advert-300,
+.widget-advert-300-600,
+.widget-advert-336,
+.widget-advert-728,
+.widget-advert-970,
+.widget-advert-970,
+.widget-advert-mobile-100,
+.widget-advert-mobile-50
+{
+	position:		relative;
+    overflow:			hidden;
+    padding:		1em 0;
+    background-color:	#303030;
+    text-align:		center;
+}
+.widget-advert-300,
+.widget-advert-300-600,
+.widget-advert-336,
+.widget-advert-mobile-100,
+.widget-advert-mobile-50{
+	padding:		0;
+}
+.widget-advert-300 > div,
+.widget-advert-300-600 > div,
+.widget-advert-336 > div,
+.widget-advert-728 > div,
+.widget-advert-970 > div {
+	display:		block;
+	float:			left;
+	width:			30em;
+	height:			25em;
+	background:		#fff;
+}
+.widget-advert-300 > div {
+	float:			none;
+	margin:			0 auto;
+}
+.widget-advert-300-600 > div {
+	float:			none;
+	margin:			0 auto;
+	width:			30em;
+	height:			60em;
+}
+.widget-advert-336 > div {
+	float:			none;
+	margin:			0 auto;
+	width:			33.6em;
+	height:			28em;
+}
+.widget-advert-728 > div {
+	margin:			0 auto;
+	width:			72.8em;
+	height:			9em;
+}
+.widget-advert-970 > div {
+	width:			97em;
+	height:			9em;
+}
+.widget-advert ins {
+    background-color: #303030!important;
+}
+#main__header .widget-advert ins {
+    background-color: #101010!important;
+}
+
+
+.widget-advert-300:before, .widget-advert-300:after,
+.widget-advert-300-600:before, .widget-advert-300-600:after,
+.widget-advert-336:before, .widget-advert-336:after,
+.widget-advert-728:before, .widget-advert-728:after,
+.widget-advert-970:before, .widget-advert-970:after,
+.widget-advert-mobile-100:before, .widget-advert-mobile-100:after,
+.widget-advert-mobile-50:before, .widget-advert-mobile-50:after {
+	display:		block;
+	float:			left;
+	margin-top:		4em;
+	width:			9em;
+	height:			1.5em;
+	color:			#888;
+	content:		'- advert -';
+}
+
+.widget-advert-300-600:before, .widget-advert-300-600:after{
+	height:			0.35em;
+}
+
+
+#main__header #console_log .widget-advert-728:before, #main__header #console_log .widget-advert-728:after{
+    display: none;
+}
+.widget-advert-300-600:before,
+.widget-advert-300-600:after,
+.widget-advert-300:before,
+.widget-advert-300:after,
+.widget-advert-336:before,
+.widget-advert-336:after {
+	float:			none;
+	margin-top:		0;
+	padding:		2em 0;
+	width:			100%;
+}
+.widget-advert-970:before,
+.widget-advert-970:after {
+	width:			10.8em;
+}
+
+.widget-advert-970:before,
+.widget-advert-970:after {
+	width:			10.8em;
+}
+
+/* mobile advert */
+.widget-advert-mobile-100:before, .widget-advert-mobile-100:after,
+.widget-advert-mobile-50:before, .widget-advert-mobile-50:after{
+	margin-top: 0;
+	padding: .3em;
+	width: 100%;
+	color: #888;
+	text-transform: capitalize;
+	font-size: 1.2em;
+}
+
+.widget-advert-mobile-100,
+.widget-advert-mobile-50{
+	clear: both;
+	margin: 1em 0;
+}
+
+.widget-advert-mobile-100 img,
+.widget-advert-mobile-50 img
+{
+	width: 100%;
+	height: auto;
+}
+
+
+
+
+
+
+
+
+
+/***** HALL OF FAME *************/
+
+.widget-stats .header {
+	margin:			0 auto;
+	width:			26%;
+	background: rgb(89,89,89);
+    background: -moz-linear-gradient(top,  rgba(89,89,89,1) 0%, rgba(61,61,61,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(89,89,89,1)), color-stop(100%,rgba(61,61,61,1)));
+    background: -webkit-linear-gradient(top,  rgba(89,89,89,1) 0%,rgba(61,61,61,1) 100%);
+    background: -o-linear-gradient(top,  rgba(89,89,89,1) 0%,rgba(61,61,61,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(89,89,89,1) 0%,rgba(61,61,61,1) 100%);
+    background: linear-gradient(to bottom,  rgba(89,89,89,1) 0%,rgba(61,61,61,1) 100%);
+    text-align:		center;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#595959', endColorstr='#3d3d3d',GradientType=0 );
+}
+.widget-stats .header span {
+    margin:			0 auto;
+	padding:		1em 0;
+	width:			35%;
+}
+.widget-stats .header span img {
+	width:			100%;
+}
+.widget-stats h4 {
+	padding-top:	.8em;
+	font-size:		2em;
+}
+
+
+
+.listing-table {
+	display:		table;
+	min-height:     50em;
+    width:			100%;
+	color:			#888;
+}
+
+.moz .listing-table{
+    min-height: 49.8em;
+    height: 0px;
+}
+
+.widget-dark .listing-table {
+	color:			#fff;
+}
+
+.listing-table .listing-row {
+	display:		table-row;
+	width:			100%;
+}
+.listing-table .listing-col {
+	display:		table-cell;
+	border-bottom:	1px dotted #3e3e3e;
+	vertical-align:	middle;
+}
+.widget-dark .listing-table .listing-col {
+	border-bottom:	1px dotted #3e3e3e;
+}
+.listing-table .listing-col.col1 {
+	position:		relative;
+	padding:		0;
+	width:			7%;
+	background:		#fff;
+}
+
+.listing-table .listing-col.col1:before,
+.listing-table .listing-col.col1:after {
+	position:		absolute;
+	top:			0;
+	left:			0;
+	display:		block;
+	width:			100%;
+	height:			.3em;
+	background:		#303030;
+	content:		'';
+}
+.listing-table .listing-col.col1:after {
+	top:			auto;
+	bottom:			-.1em;
+    border-bottom:	1px dotted #3e3e3e;
+}
+.widget-dark .listing-table .listing-col.col1:before,
+.widget-dark .listing-table .listing-col.col1:after {
+	background:		#303030;
+}
+.listing-table .listing-col.col1 img.icon {
+	margin:			0 15%;
+	width:			70%;
+}
+
+.listing-table .listing-col.col1 img.icon.js-ie{
+    display: none;
+}
+
+
+.listing-table .listing-col.col2 {
+	width:			40%;
+}
+.listing-table .listing-col.col2 span {
+	display:		block;
+	padding:		0 1em;
+	color:			#de13c5;
+	font-size:		1.6em;
+	font-family:	'raleway-regular', Helvetica, arial, sans-serif;
+}
+.widget-dark .listing-table .listing-col span {
+	color:			#de13c5;
+}
+.listing-table .listing-col time {
+	display:		block;
+	padding:		.2em 1.5em;
+	color: #fff;
+    font-weight: bold;
+    font-size:		1.1em;
+}
+
+.listing-table .listing-col strong {
+	display:		block;
+	padding-right:	.6em;
+	color:			#fff;
+	font-size:		1.3em;
+}
+.widget-dark .listing-table .listing-col strong {
+	color:			#fff;
+}
+.listing-table .listing-col em {
+	display:		block;
+	padding-right:	.8em;
+	color:#888888;
+    font-style:		normal;
+}
+.widget-dark .listing-table .listing-col em {
+	color:			#777;
+}
+
+
+.widget-halloffame .listing-table .listing-col.col1 {
+	border-bottom:	0;
+	background:		#b600a0;
+	color:			#fff;
+	font-size:		1.8em;
+	font-family:	'raleway-regular', Helvetica, arial, sans-serif;
+}
+.widget-halloffame .listing-table .listing-col.col1 span {
+	display:		block;
+	width:			100%;
+	color:			inherit;
+	text-align:		center;
+}
+.widget-halloffame .listing-row[data-itemnum="4"] .listing-col.col1,
+.widget-halloffame .listing-row[data-itemnum="5"] .listing-col.col1 {
+	background:		#f0f0f0;
+	color:			#de13c5;
+}
+
+
+
+
+
+
+
+/***** SYSTEM OF THE WEEK *************/
+.widget-systemoftheweek .content{
+    position: relative;
+    padding: 2em;
+}
+.widget-systemoftheweek .content > div{
+    position: relative;
+    display: table;
+    margin-bottom: 3em;
+    width: 100%;
+}
+.widget-systemoftheweek p{
+    display: table-cell;
+    padding-left: 2em;
+    width: 75%;
+    color:#fff!important;
+    vertical-align: middle;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.widget-systemoftheweek div img{
+    display: table-cell;
+    width: auto;
+    height: 7.5em;
+    vertical-align: top;
+}
+.widget-systemoftheweek .content > img{
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+/***** SYSTEM OF THE WEEK MOBILE *************/
+/* WHICH HAVE SYSTEMOFTHEWEEK CLASS */
+.widget-systemoftheweek-mobile .content > img{
+	margin: 0 auto;
+	max-height: 390px;
+	width: auto;
+}
+
+.widget-systemoftheweek-mobile div img{
+	height: 8.5em;
+}
+/* button, only on mobile */
+.widget-systemoftheweek-mobile div a{
+	display: none;
+}
+
+.mobile .widget-systemoftheweek-mobile div.content > img{
+	display: none;
+}
+
+.mobile .widget-systemoftheweek-mobile div a{
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+/********* WIDGET LOGIN ***********/
+#login-form{
+    margin-top: 2em;
+}
+
+/* forgot your password message */
+.widget-login form p{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    text-align: right;
+    font-size: 1.1em;
+}
+/* forgot your password link */
+.widget-login form p a{
+    position: relative;
+}
+.widget-login form p a:after{
+    position: absolute;
+    right:0;
+    bottom: -.15em;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #3e3e3e;
+    content:'';
+}
+
+.widget-login form p#widget-login-error{
+    position: absolute;
+    top: 5.5em;
+    right: 2em;
+    display: none;
+    color: red;
+    font-size: 1.2em;
+}
+
+
+/********* WIDGET MYACCOUNT ***********/
+.widget-myaccount{
+    position: relative;
+    height: 25.7em;
+}
+
+.widget-myaccount div{
+    padding: 2em;
+    text-align: center;
+}
+
+.widget-myaccount div img{
+    width: auto;
+    height: 4em;
+}
+
+.widget-myaccount div p{
+    padding-top: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+
+
+/********* MY-VALIDATIONS ***********/
+.widget-myvalidations{
+    position: relative;
+    display: table;
+    width: 100%;
+    background-color: #252525;
+    -webkit-box-shadow: inset 0px 2px 5px 0px #222;
+    -moz-box-shadow: inset 0px 2px 5px 0px #222;
+    box-shadow: inset 0px 2px 5px 0px #222;
+    -o-box-shadow: inset 0px 2px 5px 0px #222;
+}
+
+.widget-myvalidations .row{
+    position: relative;
+    display: table-row;
+    width: 100%;
+}
+
+.widget-myvalidations .row + .row > .cell{
+    border-top: 1px dotted #5c5b5b;
+}
+
+.widget-myvalidations .cell{
+    position: 	relative;
+    display: 	table-cell;
+    padding: 	1.4em 1em;
+	font-size:	1.15em;
+    vertical-align: middle;
+}
+
+.widget-myvalidations .container{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/******************** platform ********************/
+    .widget-myvalidations .platform.windows,
+    .widget-myvalidations .platform.android{
+        width: 4%;
+        background: url(../images/icon-windows.svg);
+        background-position: center;
+        background-size: 30%;
+        background-repeat: no-repeat;
+    }
+        .widget-myvalidations .platform.android{
+            background-image: url(../images/icon-android.svg);
+            background-size: 40%;
+        }
+/******************** NICKNAME ********************/
+    .widget-myvalidations .nickname{
+        width: 10%;
+    }
+        .widget-myvalidations .nickname .container{
+            color:#de13c5;
+            font-size: 1.0em;
+        }
+
+/******************** INFO1 ********************/
+    .widget-myvalidations .info1{
+        width: 20%;
+    }
+        .widget-myvalidations .info1 .container{
+            color:#fff;
+            font-weight: bold;
+            font-size: 1.0em;
+        }
+
+/******************** INFO2 ********************/
+    .widget-myvalidations .info2{
+        width: 26%;
+    }
+
+/******************** INFO3 ********************/
+    .widget-myvalidations .gpu{
+        width: 16%;
+    }
+
+/******************** INFO4 ********************/
+    .widget-myvalidations .cpuz-version{
+        width: 8%;
+    }
+
+/******************** DATE ********************/
+    .widget-myvalidations .date{
+        width: 8%;
+    }
+        .widget-myvalidations .date .container{
+            color:#777;
+            font-size: 1em;
+        }
+
+/******************** VISIBILITY ********************/
+    .widget-myvalidations .visibility{
+		position: relative;
+        width: 4%;
+        padding: 0;
+    }
+        .widget-myvalidations .visibility .container{
+            height: 100%;
+            width: 100%;
+        }
+
+.widget-myvalidations .container a.public,
+.widget-myvalidations .container a.private,
+.widget-myvalidations .container a.loading
+{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/desktop-icon-lock.png) no-repeat;
+    background-position: top left;
+    background-size: 400% auto;
+}
+
+.widget-myvalidations .container a.loading{
+    background-image: url(../images/visibility-loader.gif);
+    background-position: center;
+    background-size: 50% auto;
+}
+
+.widget-myvalidations .container a.private{
+    background-position: 68% 0%;
+}
+
+
+.widget-myvalidations .widget-buttons{
+	text-align: center;
+}
+.widget-myvalidations .widget-buttons .disp-tab {
+	width: auto;
+	margin: 0 auto;
+}
+
+
+
+
+/******************** WIDGET-GRAPH ********************/
+.widget-graph{
+    height: 41.8em;
+}
+
+.widget-graph h4 span{
+    color:#828282;
+    text-transform: none;
+    font-weight: 100;
+    font-size: .6em;
+    font-family: 'Arial', 'Helvetica';
+}
+
+.widget-graph h4:after{
+    bottom: .5em;
+    background-color: #3e3e3e;
+}
+
+.widget-graph .canvas-chart{
+    overflow: hidden; /* padding bottom work with it*/
+    margin: 0 auto;
+    width: 90%;
+    height: 32em;
+}
+
+.widget-graph p{
+    padding-top: 1em;
+    font-size: 1em;
+}

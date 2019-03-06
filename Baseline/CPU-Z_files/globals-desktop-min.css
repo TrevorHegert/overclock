@@ -1,0 +1,100 @@
+/************************************/
+/**** DEALING WITH TABLETS **********/
+/************************************/
+@media only screen and (max-width: 1280px) {
+	body > section {
+		width:		100%;
+	}
+
+    #main__menu .submenu {
+        left:         1.3em;
+        margin-left:  0;
+    }
+
+	#main__footer:before {
+		right:			auto;
+		left:			0;
+		margin-left:	0;
+/*		width:			25.5em;    */
+	}
+}
+
+/*---------------------------------------------------------------------------------------------------------------------
+                                                    HOVER
+---------------------------------------------------------------------------------------------------------------------*/
+.mouse #main__menu nav li a:hover,
+.mouse #main__menu nav #account a:hover{
+    background:		#801674;
+    cursor:         pointer;
+}
+
+.mouse .button:hover {
+    background-color:		#e400c8;
+    background-image: 		-webkit-gradient(linear, left top, left bottom, from(#ff00e0), to(#c100a9));
+    background-image: 		-webkit-linear-gradient(top, #ff00e0, #c100a9);
+    background-image:       linear-gradient(to bottom, #ff00e0, #c100a9);
+}
+
+.mouse .button.button-dark:hover {
+    background-color:		#565656;
+    background-image: 		-webkit-gradient(linear, left top, left bottom, from(#717171), to(#484848));
+    background-image: 		-webkit-linear-gradient(top, #717171, #484848);
+    background-image:       linear-gradient(to bottom, #717171, #484848);
+}
+
+.mouse #main__footer #footer-sitemap li a:hover {
+    color:			#696969;
+}
+
+
+#main__content .widget-block.widget-advert-970 {
+
+}
+
+
+/*******************************************                                *******************************************
+-----------------------------------------------------------------------------------------------------------------------
+                                                      IE8 BUGFIX
+-----------------------------------------------------------------------------------------------------------------------
+*********************************************                                ******************************************/
+.ie8 #main__header h1 {
+    background-image:		url(../images/cpuz-email-logo.png);
+}
+
+.ie8 .main-wrapper #account a:before{
+    background-image: url(../images/ie/icon-logout.png);
+
+}
+
+.ie8 .main-wrapper #account div > div:last-child a:before{
+    background-image: url(../images/ie/icon-login.png);
+
+}
+.ie8 .main-wrapper #account div#account__logged > div:last-child a:before{
+    background-image: url(../images/ie/icon-logout.png);
+    background-size: 5% auto;
+}
+
+.ie8 .main-wrapper #account div > div:first-child a:before{
+    background-image: url(../images/ie/icon-account.png);
+    background-size: 1em 1em;
+}
+
+.ie8 #main__footer #footer-sitemap div.col1 h6:before {
+    background-image: url(../images/ie/icon-compass.png);
+}
+
+.ie8 #main__footer #footer-sitemap > div.col2 li:before{
+    background-image: url(../images/ie/canard-pc-logo.png);
+
+}
+.ie8 #main__footer #footer-sitemap > div.col2 li + li{
+    background-image: url(../images/cpuid-logo.png);
+}
+
+.ie8 form .form-fields-wrapper > div.valid input,
+.ie8 form .form-fields-wrapper > div.error input,
+.ie8 form .form-fields-wrapper > div.cb-accept input
+{
+    background-image : url(../images/ie/form-tick.png);
+}
